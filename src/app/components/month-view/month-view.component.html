@@ -1,0 +1,37 @@
+<h3>Monthly-view</h3>
+<!-- src/app/components/month-view/month-view.component.html -->
+<div class="month-view-container">
+    <div class="day" *ngFor="let day of days" (click)="selectDate(day)">
+        <div *ngIf="checkEvent(day) >= 1; else noEvents">
+            <div>
+                <h3 style="color: rgb(248, 72, 72)">
+                    {{ day | date : "EEEE, dd" }}
+                </h3>
+            </div>
+            <div style="display: flex; justify-content: center">
+                <button class="add-event-btn" (click)="addEvent(day)">+</button>
+            </div>
+        </div>
+
+        <ng-template #noEvents>
+            <div>
+                <div>
+                    <h3>
+                        {{ day | date : "EEEE, dd" }}
+                    </h3>
+                </div>
+                <div style="display: flex; justify-content: center">
+                    <button class="add-event-btn" (click)="addEvent(day)">+</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
+<!-- Events section -->
+<div class="events-container" *ngIf="selectedDate">
+    <h3>Events for {{ selectedDate | date : "EEEE, MMMM dd, yyyy" }}</h3>
+
+    <app-event-list [events]="events[selectedDate.toISOString().split('T')[0]] || []"
+        (removeEvent)="removeEvent(selectedDate, $event)"></app-event-list>
+</div>

@@ -1,0 +1,67 @@
+/* Write CSS Here */
+/* src/app/components/month-view/month-view.component.css */
+.month-view-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.header-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: bold;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.events-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e9e9e9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    margin-top: 0;
+}
+
+.add-event-btn {
+    height: 20px;
+    width: 100%;
+
+    border: none;
+    background-color: #33c90e;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font: bold;
+    display: none;
+}
+
+.add-event-btn:hover {
+    background-color: #218838;
+}
+
+.day:hover {
+    .add-event-btn {
+        display: block;
+    }
+
+    background-color: #e9e9e9;
+    color: white;
+}
